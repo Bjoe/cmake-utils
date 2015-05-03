@@ -108,11 +108,11 @@ endif()
 
 
 # NDK flags
-set( CMAKE_INCPATH "-I${BLACKBERRY_TARGET_ROOT}/qnx6/usr/include -I${BLACKBERRY_TARGET_ROOT}/qnx6/usr/share/qt4/mkspecs/blackberry-${QMAKE_ARCH}-qcc -I${BLACKBERRY_TARGET_ROOT}/qnx6/usr/include/qt4/QtCore -I${BLACKBERRY_TARGET_ROOT}/qnx6/usr/include/qt4/QtGui -I${BLACKBERRY_TARGET_ROOT}/qnx6/usr/include/qt4 -I${BLACKBERRY_TARGET_ROOT}/qnx6/usr/include/freetype2 -I${BLACKBERRY_TARGET_ROOT}/usr/include/bb/device -I${BLACKBERRY_TARGET_ROOT}/usr/include/bb -I${BLACKBERRY_TARGET_ROOT}/usr/include/bb/system")
+set( CMAKE_INCPATH "-I${BLACKBERRY_TARGET_ROOT}/usr/include -I${BLACKBERRY_TARGET_ROOT}/usr/include/freetype2 -I${BLACKBERRY_TARGET_ROOT}/usr/include/bb/device -I${BLACKBERRY_TARGET_ROOT}/usr/include/bb -I${BLACKBERRY_TARGET_ROOT}/usr/include/bb/system")
 # set( CMAKE_INCPATH_DEBUG "-Idebug")
 # set( CMAKE_INCPATH_RELEASE "-Irelease")
-set( CMAKE_CXX_FLAGS "${BLACKBERRY_CXX_FLAGS}  -lang-c++ -fstack-protector -fstack-protector-all -fexceptions  -Wno-psabi -D__QNX__ -D_REENTRANT -DQT_NO_IMPORT_QT47_QML -DQ_OS_BLACKBERRY -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -Wno-unused-local-typedefs")
-set( CMAKE_C_FLAGS "${BLACKBERRY_CC_FLAGS} -fstack-protector -fstack-protector-all  -Wno-psabi -D__QNX__ -D_REENTRANT -DQT_NO_IMPORT_QT47_QML -DQ_OS_BLACKBERRY -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -Wno-unused-local-typedefs")
+set( CMAKE_CXX_FLAGS "${BLACKBERRY_CXX_FLAGS}  -lang-c++ -fstack-protector -fstack-protector-all -fexceptions  -Wno-psabi -D__QNX__ -D_REENTRANT -DQ_OS_BLACKBERRY -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -Wno-unused-local-typedefs")
+set( CMAKE_C_FLAGS "${BLACKBERRY_CC_FLAGS} -fstack-protector -fstack-protector-all  -Wno-psabi -D__QNX__ -D_REENTRANT -DQ_OS_BLACKBERRY -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -Wno-unused-local-typedefs")
 set( CMAKE_CXX_FLAGS_DEBUG "-g ${CMAKE_CXX_FLAGS_DEBUG} -DQT_DECLARATIVE_DEBUG -Wno-unused-local-typedefs")
 set( CMAKE_C_FLAGS_DEBUG "-g ${CMAKE_C_FLAGS_DEBUG} -DQT_DECLARATIVE_DEBUG -Wno-unused-local-typedefs")
 
@@ -126,7 +126,7 @@ set( CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}" CACHE STRING "c Debug flags" )
 set( CMAKE_SHARED_LINKER_FLAGS "${BLACKBERRY_LINKER_FLAGS}" CACHE STRING "linker flags" )
 SET( CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "${BLACKBERRY_LINKER_FLAGS}" CACHE STRING "linker flags")
 SET( CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "${BLACKBERRY_LINKER_FLAGS}" CACHE STRING "linker flags")
-set( CMAKE_MODULE_LINKER_FLAGS "${BLACKBERRY_LINKER_FLAGS} -Wl,-rpath-link,${BLACKBERRY_TARGET_ROOT}/qnx6/${NDK_ARCH}/lib -Wl,-rpath-link,${BLACKBERRY_TARGET_ROOT}/qnx6/${NDK_ARCH}/usr/lib -L${BLACKBERRY_TARGET_ROOT}/qnx6/${NDK_ARCH}/lib -L${BLACKBERRY_TARGET_ROOT}/qnx6/${NDK_ARCH}/usr/lib -Wl,-rpath-link,${BLACKBERRY_TARGET_ROOT}/qnx6/${NDK_ARCH}/usr/lib/qt4/lib -L${BLACKBERRY_TARGET_ROOT}/qnx6/${NDK_ARCH}/usr/lib/qt4/lib" CACHE STRING "linker flags" )
+set( CMAKE_MODULE_LINKER_FLAGS "${BLACKBERRY_LINKER_FLAGS} -Wl,-rpath-link,${BLACKBERRY_TARGET_ROOT}/${NDK_ARCH}/lib -Wl,-rpath-link,${BLACKBERRY_TARGET_ROOT}/${NDK_ARCH}/usr/lib -L${BLACKBERRY_TARGET_ROOT}/${NDK_ARCH}/lib -L${BLACKBERRY_TARGET_ROOT}/${NDK_ARCH}/usr/lib" CACHE STRING "linker flags" )
 set( CMAKE_EXE_LINKER_FLAGS "${BLACKBERRY_LINKER_FLAGS} -lm -lbps" CACHE STRING "linker flags" )
 set( CMAKE_EXE_LINKER_FLAGS_RELEASE "-Wl,-O1 -Wl,-z,relro -Wl,-z,now -Wl,--strip-all" CACHE STRING "linker flags" ) # Activate Read-only relocations (RELRO) + (GOT)
 
@@ -136,7 +136,7 @@ set( BLACKBERRY_LINKER_FLAGS "${BLACKBERRY_LINKER_FLAGS}" CACHE INTERNAL "Extra 
 #set( CMAKE_CXX_FLAGS  "${BLACKBERRY_CXX_FLAGS}" )
 #set( CMAKE_C_FLAGS    "${BLACKBERRY_CXX_FLAGS}" )
 
-set(QT_QMAKE_EXECUTABLE "${BLACKBERRY_TOOLCHAIN_ROOT}/usr/bin/qmake" CACHE FILEPATH "Qt qmake")
+#set(QT_QMAKE_EXECUTABLE "${BLACKBERRY_TOOLCHAIN_ROOT}/usr/bin/qmake" CACHE FILEPATH "Qt qmake")
 
 # Find the Target environment 
 set(CMAKE_FIND_ROOT_PATH 
